@@ -55,10 +55,10 @@ const circleColor = (depth => {
 });
 
 const circleRadius = (radius => {
-  if (radius === 1) return 2;
-  if (radius === 2) return 3;
-  if (radius === 3) return 4;
-  if (radius === 4) return 5;
+  if (radius === 1) return 3;
+  if (radius === 2) return 4;
+  if (radius === 3) return 5;
+  if (radius === 4) return 6;
 });
 
 const mapCircles = positions => {
@@ -87,16 +87,45 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
 ));
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      positions: {},
+    };
+  }
+
+  componentWillMount() {
+    fetch('https://convey.mybluemix.net/get-latest', {
+      method: 'POST',
+    })
+      .then(res => {
+        console.log('res.json :\n', res);
+        return res.json();
+      })
+      .then(json => {
+        console.log('json :\n', json);
+      }).catch(err => {
+        console.log('err :\n', err);
+    })
+  }
+
   render() {
+    console.log('this.state :\n', this.state);
     return (
-      <div className="App">
-        <MyMapComponent
-          isMarkerShown
-          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-          loadingElement={<div style={{ height: `100%` }}/>}
-          containerElement={<div style={{ height: `100vh` }}/>}
-          mapElement={<div style={{ height: `100%` }}/>}
-        />
+      <div className="app">
+        <div className="sidebar">
+          This is a sidebar
+        </div>
+        <div className="map">
+          <MyMapComponent
+            positions={this.state.positions}
+            isMarkerShown
+            googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+            loadingElement={<div style={{ height: `100%` }}/>}
+            containerElement={<div style={{ height: `100vh` }}/>}
+            mapElement={<div style={{ height: `100%` }}/>}
+          />
+        </div>
       </div>
     );
   }
