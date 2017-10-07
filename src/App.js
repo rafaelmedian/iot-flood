@@ -95,7 +95,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    fetch('https://convey.mybluemix.net/get-latest', {
+    fetch('/get-latest', {
       method: 'POST',
     })
       .then(res => {
