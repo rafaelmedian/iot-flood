@@ -65,14 +65,14 @@ const Sidebar = props => {
     <div className="sidebar">
       <div className="sidebar-top">
         <SidebarGroup>
-          <button className="input-buttons">
-            
+          <button className="">
+            <img src="https://source.unsplash.com/category/nature/330x200" alt="" height="42" width="42"/>
           </button>
           <button className="input-buttons">
-
+            <img src="https://pasteboard.co/GNRmHAH.png" alt=""/>
           </button>
           <button className="input-buttons">
-            Alert
+            <img src="https://pasteboard.co/GNRmHAH.png" alt=""/>
           </button>
           <button className="input-buttons">
             Alert
