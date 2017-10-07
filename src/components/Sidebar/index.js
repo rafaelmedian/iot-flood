@@ -82,13 +82,6 @@ const Sidebar = props => {
       </div>
       <div className="sidebar-bottom">
         {renderCards(props.positions, props.setCenter)}
-        {renderCards(props.positions, props.setCenter)}
-        {renderCards(props.positions, props.setCenter)}
-        {renderCards(props.positions, props.setCenter)}
-        {renderCards(props.positions, props.setCenter)}
-        {renderCards(props.positions, props.setCenter)}
-        {renderCards(props.positions, props.setCenter)}
-        {renderCards(props.positions, props.setCenter)}
       </div>
     </div>
   )
