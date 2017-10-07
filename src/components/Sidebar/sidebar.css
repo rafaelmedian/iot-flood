@@ -1,0 +1,98 @@
+.sidebar {
+  max-height: 100vh;
+  flex: 0 0 350px;
+  border-right: 1px solid #ccc;
+  padding: 5px;
+  overflow: hidden;
+}
+
+input {
+  border-radius: 4px;
+  height: 39px;
+  border: 1px solid #DFE7EF;;
+}
+
+.search-input {
+  margin: 8px;
+  padding: 8px;
+  width: 100%;
+}
+
+.sidebar-direction {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.direction-input {
+  margin: 8px;
+  padding: 8px;
+  width: 50%;
+}
+
+.slider-input {
+  width: 100%;
+}
+
+.input-buttons {
+  background-color: #24a3ff;
+  color: #fff;
+  border: none;
+  width: 50%;
+  padding: 8px;
+}
+
+.left-button {
+  background-color: #ff6a3b;
+}
+
+.right-button {
+  margin-left: 5px;
+}
+
+.sidebar-top,
+.sidebar-bottom {
+}
+
+.sidebar-top {
+}
+
+.sidebar-group {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.sidebar-bottom {
+  overflow-y: scroll;
+  height: 100%;
+  background-color: #fafbfc;
+}
+
+.card {
+  background-color: #fff;
+  min-height: 75px;
+  border: 1px solid #DFE7EF;
+  display: flex;
+  box-shadow: 0 1px 3px rgba(0,0,0,.14);
+}
+
+.card-details {
+  flex: 1 1 25%;
+  padding: 10px;
+  background-color: #fff;
+  color: #444;
+
+}
+
+.card-depth {
+  color: #16171a;
+  background-color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  flex: 0 0 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
