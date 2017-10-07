@@ -63,6 +63,7 @@ const Map = withScriptjs(withGoogleMap((props) =>
     defaultZoom={defaultZoom}
     defaultCenter={startLocation}
     defaultOptions={{ styles: mapStyles }}
+    center={props.center}
   >
     {mapCircles(props.positions)}
   </GoogleMap>

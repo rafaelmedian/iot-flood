@@ -18,7 +18,7 @@ const Card = props => {
   );
 };
 
-const renderCards = positions => {
+const renderCards = (positions, setCenter) => {
   return positions.map((pos, i) => {
     const { lat, lng } = getPositions(pos);
     return (
@@ -26,7 +26,7 @@ const renderCards = positions => {
         key={i}
         lat={lat}
         lng={lng}
-        onClick={() => console.log('clicked')}
+        onClick={() => setCenter(lat, lng)}
       />
     );
   })
@@ -46,7 +46,7 @@ const Sidebar = props => {
         </button>
       </div>
       <div className="sidebar-bottom">
-        {renderCards(props.positions)}
+        {renderCards(props.positions, props.setCenter)}
       </div>
     </div>
   )

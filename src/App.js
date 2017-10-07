@@ -40,6 +40,8 @@ class App extends Component {
     });
   };
 
+  setCenter = (lat, lng) => this.setState({ center: { lat, lng } });
+
   componentWillMount() {
     this.fetchInitialData();
     this.pollData();
@@ -50,12 +52,13 @@ class App extends Component {
     return (
       <div className="app">
         <Sidebar
+          setCenter={this.setCenter}
           positions={this.state.positions}
         />
         <div className="map">
           <Map
             positions={this.state.positions}
-            isMarkerShown
+            center={this.state.center}
             googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
             loadingElement={<div style={{ height: `100%` }}/>}
             containerElement={<div style={{ height: `100vh` }}/>}
