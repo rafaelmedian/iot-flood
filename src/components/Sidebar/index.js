@@ -9,29 +9,28 @@ const Card = props => {
       className="card"
       onClick={props.onClick}
     >
+
+      <div className="card-details">
+        <div>
+          <label>Alexandria, VA</label>
+        </div>
+        <div>
+          <label>4712 Southland Avenue</label>
+        </div>
+
+        <div>
+          <label>{props.lat} {props.lng}</label>
+        </div>
+      </div>
       <div
         className="card-depth"
         // style={{
         //   backgroundColor: circleColor(props.depth)
         // }}
-      >
+        >
         {props.depth}cm
       </div>
-      <div className="card-details">
-        <div>
-          <label>Address:</label>
-          <span> Some Address</span>
-        </div>
 
-        <div>
-          <label>Lat:</label>
-          <span> {props.lat}</span>
-        </div>
-        <div>
-          <label>Lng:</label>
-          <span> {props.lng}</span>
-        </div>
-      </div>
     </div>
   );
 };
@@ -67,10 +66,10 @@ const Sidebar = props => {
       <div className="sidebar-top">
         <SidebarGroup>
           <button className="input-buttons">
-            Alert
+            
           </button>
           <button className="input-buttons">
-            Alert
+
           </button>
           <button className="input-buttons">
             Alert
