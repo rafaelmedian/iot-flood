@@ -7,8 +7,27 @@
 }
 
 .search-input {
+  margin: 8px;
+  padding: 8px;
   width: 100%;
   border-radius: 5px;
+  height: 25px;
+  border: 1px solid #ccc;
+}
+
+.sidebar-direction {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.direction-input {
+  margin: 8px;
+  padding: 8px;
+  width: 50%;
+  border: 1px solid #DFE7EF;
+  border-radius: 4px;
   height: 25px;
   border: 1px solid #ccc;
 }
@@ -21,7 +40,7 @@
 
 .input-buttons {
   background-color: #24a3ff;
-  color: #57626c;
+  color: #fff;
   border: none;
   width: 50%;
   padding: 15px;
@@ -40,7 +59,6 @@
 }
 
 .sidebar-top {
-  box-shadow: 0 1px 3px rgba(0,0,0,.14);
 }
 
 .sidebar-group {
@@ -50,9 +68,9 @@
 }
 
 .sidebar-bottom {
-  background-color: #fafbfc;
   overflow-y: scroll;
   height: 100%;
+  background-color: #fafbfc;
 }
 
 .card {
@@ -66,15 +84,15 @@
 .card-details {
   flex: 1 1 25%;
   padding: 5px;
+  background-color: #fff;
   color: #444;
 }
 
 .card-depth {
-  color: #57626c;
-
+  color: #16171a;
+  background-color: #fff;
   font-size: 20px;
-  font-weight: 700;
-
+  font-weight: 800;
   flex: 0 0 25%;
   display: flex;
   align-items: center;

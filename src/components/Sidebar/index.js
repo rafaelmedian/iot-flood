@@ -11,9 +11,9 @@ const Card = props => {
     >
       <div
         className="card-depth"
-        style={{
-          backgroundColor: circleColor(props.depth)
-        }}
+        // style={{
+        //   backgroundColor: circleColor(props.depth)
+        // }}
       >
         {props.depth}cm
       </div>
@@ -66,18 +66,42 @@ const Sidebar = props => {
     <div className="sidebar">
       <div className="sidebar-top">
         <SidebarGroup>
-          <input className="search-input" type="text" name="" id=""/>
+          <button className="input-buttons">
+            Alert
+          </button>
+          <button className="input-buttons">
+            Alert
+          </button>
+          <button className="input-buttons">
+            Alert
+          </button>
+          <button className="input-buttons">
+            Alert
+          </button>
+          <button className="input-buttons">
+            Alert
+          </button>
+          <button className="input-buttons">
+            Alert
+          </button>
         </SidebarGroup>
+        <div className="sidebar-direction">
+          <SidebarGroup>
+            <input className="direction-input" type="text" name="From" placeholder="From" id=""/>
+            <input className="direction-input" type="text" name="To" placeholder="To" id=""/>
+          </SidebarGroup>
+        </div>
         <SidebarGroup>
-          <input className="slider-input" type="range" max={24} min={2} step={2}/>
-        </SidebarGroup>
-        <SidebarGroup>
+          <input className="search-input" type="text" name="Search" placeholder="Search Areas..." id=""/>
           <button className="input-buttons left-button">
             Alert
           </button>
           <button className="input-buttons right-button">
             Filter
           </button>
+        </SidebarGroup>
+        <SidebarGroup>
+          <input className="slider-input" type="range" max={24} min={2} step={2}/>
         </SidebarGroup>
       </div>
       <div className="sidebar-bottom">
