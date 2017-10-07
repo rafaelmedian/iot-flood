@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import { getPositions } from "../utils/getPositions";
 import './sidebar.css';
 import { circleColor } from "../utils/circleColor";
@@ -21,6 +22,15 @@ const Card = props => {
         <div>
           <label>{props.lat} {props.lng}</label>
         </div>
+
+        <button className={classnames({ 'input-buttons': true, 
+                        'button-danger': (props.depth > 1 && props.depth < 100),
+                        'button-mild-danger': (props.depth > 100 && props.depth < 200),
+                        'button-info': (props.depth > 200 && props.depth < 500),
+                        'button-ok': (props.depth > 500)
+                        })}>
+          {printBullonLabel(props)}
+        </button>
       </div>
       <div
         className="card-depth"
@@ -28,12 +38,24 @@ const Card = props => {
         //   backgroundColor: circleColor(props.depth)
         // }}
         >
-        {props.depth}cm
+        {props.depth} cm
       </div>
 
     </div>
   );
 };
+
+const printBullonLabel = props => {
+  let result = "Information"
+  if (props.depth > 1 & props.depth < 100) {
+    result = "Danger"
+  } else if (props.depth > 100 & props.depth < 200) {
+    result = "Warning"
+  } else if (props.depth > 200 & props.depth < 500) {
+    result = "Alert"
+  }
+  return result
+}
 
 const renderCards = (positions, setCenter) => {
   return positions.map((pos, i) => {

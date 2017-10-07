@@ -5,7 +5,7 @@ import './App.css';
 import Sidebar from "./components/Sidebar/index";
 
 // Determine the poll speed
-const POLL_MS = 5000;
+const POLL_MS = 1000;
 // start location for the map
 const startLocation = { lat: 29.42, lng: -98.49 };
 

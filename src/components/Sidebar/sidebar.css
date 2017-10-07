@@ -96,3 +96,19 @@ input {
   align-items: center;
   justify-content: center;
 }
+
+.button-danger {
+  background-color: #ff6a3b;
+}
+
+.button-mild-danger {
+  background-color: #ff6500;
+}
+
+.button-info {
+  background-color: #0708ff;
+}
+
+.button-ok {
+  background-color: rgb(38, 197, 9);
+}

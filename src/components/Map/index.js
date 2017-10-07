@@ -16,11 +16,12 @@ const defaultZoom = 20;
 
 
 const circleRadius = (radius => {
-  let rad = 1;
-  if (radius > 1) rad = 3;
-  if (radius > 2) rad = 4;
-  if (radius > 3) rad = 5;
-  if (radius > 4) rad = 6;
+  let rad; // = Math.floor(1000 - radius);
+  if (radius > 1 & radius < 100) rad = 200;
+  if (radius > 100 & radius < 200) rad = 150;
+  if (radius > 200 & radius < 500) rad = 100
+  if (radius > 500 & radius < 1000) rad = 50;
+  if (radius > 1000) rad = 10;
   return rad
 });
 
