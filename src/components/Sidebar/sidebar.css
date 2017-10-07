@@ -1,0 +1,22 @@
+.sidebar {
+  height: 100vh;
+  flex: 0 0 350px;
+  border-right: 1px solid #ccc;
+  padding: 5px;
+}
+
+.sidebar-top,
+.sidebar-bottom {
+}
+
+.sidebar-top {
+  height: 200px;
+}
+
+.sidebar-bottom {
+}
+
+.card {
+  min-height: 75px;
+  border: 1px solid #ccc;
+}
