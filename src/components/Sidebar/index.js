@@ -1,13 +1,35 @@
 import React from 'react';
+import { getPositions } from "../utils/getPositions";
 import './sidebar.css';
 
-const Card = () => {
+const Card = props => {
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={props.onClick}
+    >
       <label>Address:</label>
       <span> Some Address</span>
+      <label>Lat:</label>
+      <span>{props.lat}</span>
+      <label>Lng:</label>
+      <span>{props.lng}</span>
     </div>
   );
+};
+
+const renderCards = positions => {
+  return positions.map((pos, i) => {
+    const { lat, lng } = getPositions(pos);
+    return (
+      <Card
+        key={i}
+        lat={lat}
+        lng={lng}
+        onClick={() => console.log('clicked')}
+      />
+    );
+  })
 };
 
 const Sidebar = props => {
@@ -24,15 +46,14 @@ const Sidebar = props => {
         </button>
       </div>
       <div className="sidebar-bottom">
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        {renderCards(props.positions)}
       </div>
     </div>
   )
+};
+
+Sidebar.defaultProps = {
+  positions: [],
 };
 
 export default Sidebar;
