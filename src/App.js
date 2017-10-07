@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { mapStyles } from './misc/mapStyles';
 import {
   withGoogleMap,
   GoogleMap,
@@ -7,30 +8,7 @@ import {
 } from "react-google-maps";
 import './App.css';
 
-const positions = [
-  {
-    lat: 18.3973291,
-    lng: -66.08799,
-    depth: 1
-  },
-  {
-    lat: 18.3978593,
-    lng: -66.08775,
-    depth: 1
-  },
-  {
-    lat: 18.3973797,
-    lng: -66.08793,
-    depth: 3
-  },
-  {
-    lat: 18.3978489,
-    lng: -66.08797,
-    depth: 4
-  },
-];
-
-const startLocation = { lat: 18.3978789, lng: -66.08797 };
+const startLocation = { lat: 29.42, lng: -98.49 };
 
 const defaultZoom = 20;
 
@@ -55,11 +33,23 @@ const circleColor = (depth => {
 });
 
 const circleRadius = (radius => {
-  if (radius === 1) return 3;
-  if (radius === 2) return 4;
-  if (radius === 3) return 5;
-  if (radius === 4) return 6;
+  let rad = 1;
+  if (radius > 1) rad = 3;
+  if (radius > 2) rad = 4;
+  if (radius > 3) rad = 5;
+  if (radius > 4) rad = 6;
+  return rad
 });
+
+const getPositions = pos => {
+
+  const { location } = pos;
+
+  return {
+    lat: location.latitude,
+    lng: location.longitude,
+  }
+};
 
 const mapCircles = positions => {
   return positions.map((pos, i) => {
@@ -67,7 +57,7 @@ const mapCircles = positions => {
       <Circle
         key={i}
         clickable
-        center={pos}
+        center={getPositions(pos)}
         radius={circleRadius(pos.depth)}
         onCenterChanged={this.onCenterChanged}
         onRadiusChanged={this.onRadiusChanged}
@@ -81,8 +71,11 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
     defaultZoom={defaultZoom}
     defaultCenter={startLocation}
+    defaultOptions={{
+      styles: mapStyles,
+    }}
   >
-    {mapCircles(positions)}
+    {mapCircles(props.positions)}
   </GoogleMap>
 ));
 
@@ -90,22 +83,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      positions: {},
+      positions: [],
+      startLocation: { lat: 29.42, lng: -98.49 },
     };
   }
 
   componentWillMount() {
-    fetch('/get-latest', {
-      method: 'POST',
-    })
+    fetch('/get-latest', { method: 'POST', })
       .then(res => {
-        console.log('res.json :\n', res);
         return res.json();
-      })
-      .then(json => {
-        console.log('json :\n', json);
-      }).catch(err => {
-        console.log('err :\n', err);
+      }).then(json => {
+      this.setState({
+        positions: json,
+        startLocation: json.length ? getPositions(json[0]) : { lat: 29.42, lng: -98.49 }
+      });
+    }).catch(err => {
+      console.log('err :\n', err);
     })
   }
 
