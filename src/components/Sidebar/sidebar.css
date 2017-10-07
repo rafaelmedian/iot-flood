@@ -21,7 +21,7 @@
 
 .input-buttons {
   background-color: #24a3ff;
-  color: #fff;
+  color: #57626c;
   border: none;
   width: 50%;
   padding: 15px;
@@ -40,6 +40,7 @@
 }
 
 .sidebar-top {
+  box-shadow: 0 1px 3px rgba(0,0,0,.14);
 }
 
 .sidebar-group {
@@ -49,27 +50,31 @@
 }
 
 .sidebar-bottom {
+  background-color: #fafbfc;
   overflow-y: scroll;
   height: 100%;
 }
 
 .card {
+  background-color: #fff;
   min-height: 75px;
   border: 1px solid #ccc;
   display: flex;
+  box-shadow: 0 1px 3px rgba(0,0,0,.14);
 }
 
 .card-details {
   flex: 1 1 25%;
   padding: 5px;
-  background-color: #ebf7ff;
   color: #444;
 }
 
 .card-depth {
-  background-color: #24a3ff;
+  color: #57626c;
+
   font-size: 20px;
-  color: #fff;
+  font-weight: 700;
+
   flex: 0 0 25%;
   display: flex;
   align-items: center;

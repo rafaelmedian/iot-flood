@@ -15,7 +15,7 @@ const Card = props => {
           backgroundColor: circleColor(props.depth)
         }}
       >
-        {props.depth}
+        {props.depth}cm
       </div>
       <div className="card-details">
         <div>
